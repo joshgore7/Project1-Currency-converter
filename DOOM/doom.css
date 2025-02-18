@@ -1,0 +1,87 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
+
+
+body {
+background-image: linear-gradient(to bottom, #2c0000, #000000 70%);
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100vw;
+height: 100vh;
+overflow: hidden;
+} 
+.scroll-text{
+  color: red;
+  font-family: 'Metal Mania';
+  font-size: 3vw;
+  line-height: 1.5em;
+  text-align: justify;
+  margin: 60% 0 0 0;
+  margin-left: 75px;
+  position: relative;
+  animation: scroll 60s linear forwards;        /* scrolling text speed */
+}
+/* Scrolling text animation */
+@keyframes scroll{      
+  from {top: 20rem;}
+  to {top: -123rem;}   
+}
+h1 {
+  font-weight: bold;
+  color: red;
+  letter-spacing: .1em;
+  text-shadow: 1px 5px 4px rgba(100, 0, 0, 0.6), 
+    0px -4px 10px rgba(0, 0, 0, 1);
+}
+.wrapper{
+  display: flex;
+  height: 100%;
+  width: 60%;
+  margin: 0 auto;
+}
+/* rain */
+
+hr{
+width: 1em;
+border-color: transparent;
+border-right-color: rgb(241, 131, 131);      /* rain color */
+border-right-width: 5em;
+position: absolute;
+bottom: 100%;
+transform-origin: 100% 50%;
+animation-name: rain;
+animation-duration: 1s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+}
+#dosbox{
+margin-left: 35px;
+
+}
+/* rain angle */
+@keyframes rain {
+from {
+  transform: rotate(105deg) translateX(0);
+}
+to {
+  transform: rotate(105deg) translateX(calc(100vh + 0.5em));
+}
+}
+
+button{
+  background: transparent;
+  border: 1px solid red;
+  color: white;
+  font-size: 15px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 100px;
+  margin-left: 33%;
+
+}
+button:hover{
+  background-color: rgb(241, 131, 131);
+}
+

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap');
+
 
 *{
     margin: 0;
@@ -10,22 +12,29 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #675AFE;
+    background-color: #606470;
 }
 .wrapper{
-    margin-top: 100px;
+    margin-top: 20px;
     width: 100%;
-    max-width: 350px;
-    padding: 30px;
-    background-color: #fff;
+    max-width: 400px;
+    padding: 50px;
+    background-color: #34495e;
     border-radius: 7px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow:
+        rgba(141, 198, 255, 0.4) 5px 5px, 
+        rgba(141, 198, 255, 0.3) 10px 10px, 
+        rgba(141, 198, 255, 0.2) 15px 15px, 
+        rgba(141, 198, 255, 0.1) 20px 20px, 
+        rgba(141, 198, 255, 0.05) 25px 25px;
 }
 .wrapper header{
     font-size: 25px;
     font-weight: 500;
     margin-bottom: 20px;
     text-align: center;
+    font-family: "Sansita Swashed", cursive;
+    color: #8dc6ff;
 }
 .wrapper form{
     display: flex;
@@ -33,6 +42,9 @@ body{
     margin: 40px 0 20px 0;
 }
 p{
+    color: #8dc6ff;
+    font-size: 20px;
+    margin: 7px 0;
     text-align: center;
 }
 form :where(input, select, button){
@@ -44,14 +56,16 @@ form :where(input, select, button){
 }
 form input{
     height: 30px;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #8dc6ff;
     padding: 0 10px;
     font-size: 15px;
+    background: transparent;
+    color: #8dc6ff;
 }
-form input:focus{
+/* form input:focus{
     padding: 0 10px;
-    border-bottom: 1px solid #675AFE;
-}
+    border-bottom: 1px solid #8dc6ff;
+} */
 form .dropListContainer{
     display: flex;
     margin-top: 20px;
@@ -59,18 +73,22 @@ form .dropListContainer{
     align-items: center;
 }
 .dropListContainer .select-box{
-    width: 115px;
+    width: 120px;
     height: 45px;
     display: flex;
-    border-radius: 5px;
+    border-radius: 10px;
     align-items: center;
     justify-content: center;
-    border: 1px solid #999;
+    border: 1px solid #8dc6ff;
+    background: transparent;
+
 }
 .select-box select{
     margin: auto;
     width: auto;
     font-size: 15px;
+    background: transparent;
+    color: #8dc6ff;
 }
 .select-box img{
 max-width: 25px;
@@ -79,7 +97,8 @@ margin-left: 5px;;
 .dropListContainer .icon{
     cursor: pointer;
     font-size: 20px;
-    margin-top: 20px;
+    margin-top: 40px;
+    color: #8dc6ff;
 }
 form .exchange-rate{
     font-size: 20px;
@@ -88,9 +107,16 @@ form .exchange-rate{
 }
 form button{
     height: 50px;
-    background-color: #675AFE;
-    color: #fff;
-    font-size: 15px;
+    background-color: #8dc6ff;
+    color: #22313f;
+    font-size: 20px;
     cursor: pointer;
     border-radius: 5px;
+    font-family: "Sansita Swashed";
+}
+.exchange-rate{
+    color: #8dc6ff;
+    font-size: 20px;
+    margin: 7px 0;
+    text-align: center;
 }

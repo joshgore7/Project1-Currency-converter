@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="doom.css" />
+    <style type="text/css">
+        .dosbox-container {
+            width: 640px;
+            height: 400px;
+        }
+
+        .dosbox-container>.dosbox-overlay {
+            background: url(https://js-dos.com/cdn/DOOM.png);
+        }
+    </style>
+</head>
+
+<body>
+    <audio src="../DOOM/sounds/doomMerged.mp3" type="audio/mpeg" autoplay></audio>
+    <script src="doom.js"></script>
+    <div class="wrapper">
+        <div class="scroll-text">
+            <p>In the first age,</p>
+            <p>In the first battle,</p>
+            <p>When the shadows first lengthened,</p>
+            <p>One stood.</p>
+            <p>He chose the path of perpetual torment.</p><br>
+            <p>In his ravenous hatred he found no peace,</p>
+            <p>And with boiling blood he scoured the umbral plains, 
+            Seeking vengence against the dark lords who had robbed him.</p><br><br>
+            <p>And those that tasted the bite of his sword named him...</p>
+            
+            <h1>The Doom Slayer.</h1>
+            <div id="dosbox"></div>
+            <button onclick="history.back()">Im scared, Go Back</button>
+
+            <script type="text/javascript" src="../DOOM/DOS-API.js"></script>
+            <script type="text/javascript">
+                var dosbox = new Dosbox({
+                    id: "dosbox",
+                    onload: function (dosbox) {
+                        dosbox.run("game/DOOM.zip", "./DOOM.EXE");
+                    },
+                    onrun: function (dosbox, app) {
+                        console.log("App '" + app + "' is runned");
+                    }
+                });
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>

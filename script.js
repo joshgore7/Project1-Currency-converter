@@ -2,8 +2,12 @@
 
 
 // import 'dotenv/config'; 
-require("dotenv").config();
-console.log(process.env.API_KEY);
+// require('dotenv').config()
+// import dotenv from 'dotenv';
+// dotenv.config();
+// console.log(process.env.API_KEY);
+
+const API_KEY = 'bdebfcc3ca3618fdbc68f9d3';
 
 const countryList = {
     "AED" : "AE",
@@ -49,7 +53,6 @@ const countryList = {
     "DKK" : "DK",
     "DOP" : "DO",
     "DZD" : "DZ",
-    "ECS" : "EC",
     "EEK" : "EE",
     "EGP" : "EG",
     "ETB" : "ET",
@@ -164,13 +167,14 @@ const countryList = {
     "YER" : "YE",
     "ZAR" : "ZA",
     "ZMK" : "ZM",
-    "ZWD" : "ZW"
+    "ZWD" : "ZW",
+    "DOOM" : "DOOM"
 }
 
 const dropList = document.querySelectorAll('.drop-list');
 const fromCurrency = document.querySelector('.from select');
 const toCurrency = document.querySelector('.to select');
-getButton = document.querySelector('form');
+const getButton = document.querySelector('form');
 
 for(let i = 0; i < dropList.length; i++){
     for (let currencyCode in countryList){
@@ -178,29 +182,70 @@ for(let i = 0; i < dropList.length; i++){
         if(i == 0){
             selected = currencyCode == 'USD' ? 'selected' : '';
         }else if(i == 1){
-            selected = currencyCode == 'EUR' ? 'selected' : '';
+            selected = currencyCode == 'CAD' ? 'selected' : '';
         }
         let optionTag = `<option value="${currencyCode}" ${selected}>${currencyCode}</option>`;
         dropList[i].insertAdjacentHTML('beforeend', optionTag);
     }
+    dropList[i].addEventListener('change', e => {
+        loadFlag(e.target);
+    });
 }
+
+function loadFlag(element){
+    for(let code in countryList){
+        if(code == element.value){
+            let imgTag = element.parentElement.querySelector('img');
+            if (imgTag) {
+                if (code === 'DOOM') {
+                    imgTag.src = "../DOOM/images/doomIcon.png";
+                } else {
+                    imgTag.src = `https://flagsapi.com/${countryList[code]}/flat/64.png`;
+                }
+            }
+        }
+    }
+}
+
+getButton.addEventListener('load', e => {
+    getExchangeRate();
+});
 
 getButton.addEventListener('click', e => {
     e.preventDefault();
     getExchangeRate();
 });
 
+// const exchangeIcon = document.querySelector('.drop-list .icon');
+// if (exchangeIcon) {
+//     exchangeIcon.addEventListener('click', () => {
+//         let tempCode = fromCurrency.value;
+//         fromCurrency.value = toCurrency.value;
+//         toCurrency.value = tempCode;
+//         loadFlag(fromCurrency);
+//         loadFlag(toCurrency);
+//         getExchangeRate();
+//     });
+// }
+
 function getExchangeRate(){
-    const amount = document.querySelectorAll(".amount input");
+    const amount = document.querySelector(".amount input");
+    const exchangeRateText = document.querySelector('.exchange-rate');
     let amountVal = amount.value;
     // puts in a 1 by default if the user doesn't put in a value
     if(amountVal == "" || amountVal == "0"){
         amount.value = "1" ;
         amountVal = 1;   
     }
-    let url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${fromCurrency.value}`; 
-    // let url = `https://v6.exchangerate-api.com/v6/bdebfcc3ca3618fdbc68f9d3/latest/${fromCurrency.value}`;
+    if (fromCurrency.value === 'DOOM' && toCurrency.value === 'DOOM') {
+        window.location.href = '../DOOM/doom.html'; 
+        return; 
+    }
+    // let url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${fromCurrency.value}`; 
+    let url = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/${fromCurrency.value}`;
     fetch(url).then(response => response.json()).then(result => {
-        console.log(result);
+        let exchangeRate = result.conversion_rates[toCurrency.value];
+        let totalExchangeRate = (amountVal * exchangeRate).toFixed(2);
+        exchangeRateText.innerText = `${totalExchangeRate} ${toCurrency.value}`;
     })
 }
