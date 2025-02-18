@@ -52,13 +52,13 @@ form input:focus{
     padding: 0 10px;
     border-bottom: 1px solid #675AFE;
 }
-form .drop-list{
+form .dropListContainer{
     display: flex;
     margin-top: 20px;
     justify-content: space-between;
     align-items: center;
 }
-.drop-list .select-box{
+.dropListContainer .select-box{
     width: 115px;
     height: 45px;
     display: flex;
@@ -76,7 +76,7 @@ form .drop-list{
 max-width: 25px;
 margin-left: 5px;;
 }
-.drop-list .icon{
+.dropListContainer .icon{
     cursor: pointer;
     font-size: 20px;
     margin-top: 20px;
