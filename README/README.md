@@ -43,7 +43,7 @@ you can also install Node.js using a package manager like Homebrew:
 
 ## How to use
 
-<img src="../README/images/infoImage.png" width="500" height="300" />
+<img src="../README/images/infoImage.png" width="650" height="500" />
 
 
 <h3>Your result should look like:</h3>
