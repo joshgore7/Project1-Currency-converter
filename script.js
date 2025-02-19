@@ -1,6 +1,5 @@
 
 
-
 // import 'dotenv/config'; 
 // require('dotenv').config()
 // import dotenv from 'dotenv';
@@ -10,21 +9,19 @@
 const API_KEY = 'bdebfcc3ca3618fdbc68f9d3';
 
 const countryList = {
+    "USD" : "US",
     "AED" : "AE",
     "AFN" : "AF",
-    "XCD" : "AG",
     "ALL" : "AL",
     "AMD" : "AM",
     "ANG" : "AN",
     "AOA" : "AO",
-    "AQD" : "AQ",
     "ARS" : "AR",
     "AUD" : "AU",
     "AZN" : "AZ",
     "BAM" : "BA",
     "BBD" : "BB",
     "BDT" : "BD",
-    "XOF" : "BE",
     "BGN" : "BG",
     "BHD" : "BH",
     "BIF" : "BI",
@@ -33,13 +30,11 @@ const countryList = {
     "BOB" : "BO",
     "BRL" : "BR",
     "BSD" : "BS",
-    "NOK" : "BV",
     "BWP" : "BW",
     "BYR" : "BY",
     "BZD" : "BZ",
     "CAD" : "CA",
     "CDF" : "CD",
-    "XAF" : "CF",
     "CHF" : "CH",
     "CLP" : "CL",
     "CNY" : "CN",
@@ -47,14 +42,13 @@ const countryList = {
     "CRC" : "CR",
     "CUP" : "CU",
     "CVE" : "CV",
-    "CYP" : "CY",
     "CZK" : "CZ",
     "DJF" : "DJ",
     "DKK" : "DK",
     "DOP" : "DO",
     "DZD" : "DZ",
-    "EEK" : "EE",
     "EGP" : "EG",
+    "EEK" : "EE",
     "ETB" : "ET",
     "EUR" : "FR",
     "FJD" : "FJ",
@@ -107,7 +101,6 @@ const countryList = {
     "MNT" : "MN",
     "MOP" : "MO",
     "MRO" : "MR",
-    "MTL" : "MT",
     "MUR" : "MU",
     "MVR" : "MV",
     "MWK" : "MW",
@@ -115,9 +108,9 @@ const countryList = {
     "MYR" : "MY",
     "MZN" : "MZ",
     "NAD" : "NA",
-    "XPF" : "NC",
     "NGN" : "NG",
     "NIO" : "NI",
+    "NOK" : "BV",
     "NPR" : "NP",
     "NZD" : "NZ",
     "OMR" : "OM",
@@ -139,7 +132,6 @@ const countryList = {
     "SDG" : "SD",
     "SEK" : "SE",
     "SGD" : "SG",
-    "SKK" : "SK",
     "SLL" : "SL",
     "SOS" : "SO",
     "SRD" : "SR",
@@ -158,12 +150,15 @@ const countryList = {
     "TZS" : "TZ",
     "UAH" : "UA",
     "UGX" : "UG",
-    "USD" : "US",
     "UYU" : "UY",
     "UZS" : "UZ",
     "VEF" : "VE",
     "VND" : "VN",
     "VUV" : "VU",
+    "XAF" : "CF",
+    "XCD" : "AG",
+    "XOF" : "BE",
+    "XPF" : "NC",
     "YER" : "YE",
     "ZAR" : "ZA",
     "ZMK" : "ZM",
@@ -174,7 +169,7 @@ const countryList = {
 const dropList = document.querySelectorAll('.drop-list');
 const fromCurrency = document.querySelector('.from select');
 const toCurrency = document.querySelector('.to select');
-const getButton = document.querySelector('form');
+const getButton = document.querySelector('.exchange-btn');
 
 for(let i = 0; i < dropList.length; i++){
     for (let currencyCode in countryList){
@@ -192,10 +187,10 @@ for(let i = 0; i < dropList.length; i++){
     });
 }
 
-function loadFlag(element){
+function loadFlag(country){
     for(let code in countryList){
-        if(code == element.value){
-            let imgTag = element.parentElement.querySelector('img');
+        if(code == country.value){
+            let imgTag = country.parentElement.querySelector('img');
             if (imgTag) {
                 if (code === 'DOOM') {
                     imgTag.src = "../DOOM/images/doomIcon.png";
@@ -207,26 +202,13 @@ function loadFlag(element){
     }
 }
 
-getButton.addEventListener('load', e => {
-    getExchangeRate();
-});
+
 
 getButton.addEventListener('click', e => {
     e.preventDefault();
     getExchangeRate();
 });
 
-// const exchangeIcon = document.querySelector('.drop-list .icon');
-// if (exchangeIcon) {
-//     exchangeIcon.addEventListener('click', () => {
-//         let tempCode = fromCurrency.value;
-//         fromCurrency.value = toCurrency.value;
-//         toCurrency.value = tempCode;
-//         loadFlag(fromCurrency);
-//         loadFlag(toCurrency);
-//         getExchangeRate();
-//     });
-// }
 
 function getExchangeRate(){
     const amount = document.querySelector(".amount input");
@@ -237,6 +219,7 @@ function getExchangeRate(){
         amount.value = "1" ;
         amountVal = 1;   
     }
+    // runs Doom if the user selects DOOM for both currencies
     if (fromCurrency.value === 'DOOM' && toCurrency.value === 'DOOM') {
         window.location.href = '../DOOM/doom.html'; 
         return; 
