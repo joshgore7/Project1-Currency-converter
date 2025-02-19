@@ -31,7 +31,6 @@ As a user, I want the app to display flags for each currency, so that I can visu
 Currency Converter requires Node.js v22 or greater to run
 
 
-
 To install Node.js you can use nvm:
 ```bash
   nvm install node
@@ -45,10 +44,12 @@ you can also install Node.js using a package manager like Homebrew:
 
 <img src="../README/images/infoImage.png" width="650" height="500" />
 
-
 <h3>Your result should look like:</h3>
 <img src="../README/images/resultImage.png" width="500" height="500" />
 
 
+## Still not having fun?
+
+try converting DOOM into DOOM 😈
 
     
