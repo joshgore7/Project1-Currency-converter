@@ -1,16 +1,17 @@
 
 # Currency Converter
 
+<img src="https://www.shutterstock.com/image-vector/currency-exchange-money-conversion-euro-600nw-1919947535.jpg" 
+  width="200" height="200" />
+
 This is a simple currency converter that allows the user to convert between various currencies.\
 It uses a currency exchange API to retrieve real-time exchange rates and displays the converted amount based on user input.
-<br>
-API used from:
+<br><br>
+Currency exchange rates used from:
 [ExchangeRate-API](https://app.exchangerate-api.com/)
 
 
-<!-- ![Logo](https://www.shutterstock.com/image-vector/currency-exchange-money-conversion-euro-600nw-1919947535.jpg) -->
-<img src="https://www.shutterstock.com/image-vector/currency-exchange-money-conversion-euro-600nw-1919947535.jpg" 
-  width="200" height="200" />
+
 
 
 ## Problems and Planning
@@ -27,7 +28,7 @@ As a user, I want the app to support a wide range of currencies, so that I can c
 
 As a user, I want the app to display flags for each currency, so that I can visually identify the currencies.
 
-[Here is a link to my KanBan](https://kanbanflow.com/board/aC77YeP)
+[Here is a link to the KanBan](https://kanbanflow.com/board/aC77YeP)
 
 ## Requirements
 
