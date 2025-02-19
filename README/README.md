@@ -3,6 +3,9 @@
 
 This is a simple currency converter that allows the user to convert between various currencies.\
 It uses a currency exchange API to retrieve real-time exchange rates and displays the converted amount based on user input.
+<br>
+API used from:
+[ExchangeRate-API](https://app.exchangerate-api.com/)
 
 
 <!-- ![Logo](https://www.shutterstock.com/image-vector/currency-exchange-money-conversion-euro-600nw-1919947535.jpg) -->
