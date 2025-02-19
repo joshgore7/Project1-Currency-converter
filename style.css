@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap');
 
-
 *{
     margin: 0;
     padding: 0;
@@ -33,7 +32,7 @@ body{
     font-weight: 500;
     margin-bottom: 20px;
     text-align: center;
-    font-family: "Sansita Swashed", cursive;
+    font-family: "Sansita Swashed";
     color: #8dc6ff;
 }
 .wrapper form{
@@ -62,10 +61,6 @@ form input{
     background: transparent;
     color: #8dc6ff;
 }
-/* form input:focus{
-    padding: 0 10px;
-    border-bottom: 1px solid #8dc6ff;
-} */
 form .dropListContainer{
     display: flex;
     margin-top: 20px;
@@ -95,7 +90,6 @@ max-width: 25px;
 margin-left: 5px;;
 }
 .dropListContainer .icon{
-    cursor: pointer;
     font-size: 20px;
     margin-top: 40px;
     color: #8dc6ff;

@@ -8,6 +8,7 @@
 
 const API_KEY = 'bdebfcc3ca3618fdbc68f9d3';
 
+// dictionary of currency codes and their corresponding country codes
 const countryList = {
     "USD" : "US",
     "AED" : "AE",
@@ -171,9 +172,11 @@ const fromCurrency = document.querySelector('.from select');
 const toCurrency = document.querySelector('.to select');
 const getButton = document.querySelector('.exchange-btn');
 
+// adds country codes to dropdown list
 for(let i = 0; i < dropList.length; i++){
     for (let currencyCode in countryList){
         let selected = '';
+        // defaults the selected currency to USD and CAD when page loads
         if(i == 0){
             selected = currencyCode == 'USD' ? 'selected' : '';
         }else if(i == 1){
@@ -182,11 +185,12 @@ for(let i = 0; i < dropList.length; i++){
         let optionTag = `<option value="${currencyCode}" ${selected}>${currencyCode}</option>`;
         dropList[i].insertAdjacentHTML('beforeend', optionTag);
     }
+    // adds flag when the selected country is changed
     dropList[i].addEventListener('change', e => {
         loadFlag(e.target);
     });
 }
-
+// loads the flag of the selected country from flagsapi.com
 function loadFlag(country){
     for(let code in countryList){
         if(code == country.value){
@@ -202,14 +206,13 @@ function loadFlag(country){
     }
 }
 
-
-
+// gets exchange rate when button is clicked, prevents page from refreshing
 getButton.addEventListener('click', e => {
     e.preventDefault();
     getExchangeRate();
 });
 
-
+// calculates the exchange rate
 function getExchangeRate(){
     const amount = document.querySelector(".amount input");
     const exchangeRateText = document.querySelector('.exchange-rate');
@@ -229,6 +232,8 @@ function getExchangeRate(){
     fetch(url).then(response => response.json()).then(result => {
         let exchangeRate = result.conversion_rates[toCurrency.value];
         let totalExchangeRate = (amountVal * exchangeRate).toFixed(2);
+
+        //displays the exchange
         exchangeRateText.innerText = `${totalExchangeRate} ${toCurrency.value}`;
     })
 }
